@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Oswald:wght@500&display=swap');
+
+
+.website-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+
+}
+.website-title a {
+    text-decoration: none;
+    color: green;
+}
+
+@media all and (min-width: 768px){
+    .website-title {
+        font-size: 3.5rem
+    }
+    .mobile-menu-button {
+        display: none;
+    }
+}
+
+@media all and (max-width:767px){
+    .destop-nav{
+        display: none;
+    }
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Courgette', cursive;
+     color: red;
+
+}
+
+.website-icon{
+    font-size: 4rem;
+    color: green;
+}
+
+
+.website-slogan {
+    font-size: 1.3rem;
+    color: #999999;
+}

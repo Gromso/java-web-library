@@ -1,0 +1,72 @@
+package com.example;
+
+import com.example.hibernate.HibernateUtil;
+import com.example.hibernate.models.Author;
+import com.example.hibernate.models.Book;
+import com.example.hibernate.models.Publisher;
+import com.example.hibernate.models.User;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        try{
+            SessionFactory sessionFactory = HibernateUtil.createSessionFactory();
+            Session session = sessionFactory.openSession();
+            session.getTransaction().begin();
+
+
+            // Add new Authors in db
+           /* Author newAuthor = new Author();
+            newAuthor.setFull_name("tesla");
+            newAuthor.setPhoto("tesla.webp");
+            newAuthor.setBiography("eeeee");
+            newAuthor.setBorn(LocalDate.parse("1859-05-22"));
+            newAuthor.setDied(LocalDate.parse("1930-07-07"));
+            session.persist(newAuthor);*/
+
+            // Delete Row
+           /* int rows_affected = session.createQuery("Delete from Author a where a.authors_id = :authors_id")
+                    .setParameter("authors_id", 5).executeUpdate();*/
+
+
+            // Update Author
+            /*Author arthur_conan = session.createQuery("FROM Author a where a.authors_id =3" , Author.class).getSingleResult();
+            arthur_conan.setBiography("""
+                    Conan Doyle, the second of Charles Altamont and Mary Foley Doyle’s 10 children,
+                     began seven years of Jesuit education in Lancashire, England, in 1868.
+                      After an additional year of schooling in Feldkirch, Austria, Conan Doyle returned to Edinburgh.
+                       Through the influence of Dr. Bryan Charles Waller, his mother’s lodger
+                    """);
+            session.persist(arthur_conan);*/
+
+
+
+           /* List<Author> listAuthors = session.createQuery("from Author", Author.class).list();
+            for (var a :listAuthors){
+                System.out.println(a.getFull_name());
+            }*/
+
+         //   List<Author> book = session.createQuery("from Author", Author.class).list();
+            //System.out.println(book);
+
+          //  System.out.println("ee");
+
+
+
+            User user = session.createQuery("from User u where u.users_id =1", User.class).getSingleResult();
+            System.out.println(user.getEmail());
+            session.getTransaction().commit();
+            session.close();
+            sessionFactory.close();
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+}
